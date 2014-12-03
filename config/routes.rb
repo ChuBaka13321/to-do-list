@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  #add an alias to home path, we'll see why later  
+  root 'home#index', as: :home   
+
+  get 'lists/' => 'lists#index', as: :lists
+
+  #new route added in
+  get 'lists/' => 'lists#index', as: :list
+
+  post 'lists/' => 'lists#create', as: :lists_create
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
